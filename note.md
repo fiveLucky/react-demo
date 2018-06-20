@@ -18,3 +18,4 @@
 
 * README.md    
 * 安装gitbook，自动生成文档
+* 发布npm包
