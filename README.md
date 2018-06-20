@@ -6,8 +6,8 @@
 >涉及的技术栈：react16+webpack4+redux+react-router  
 #### 安装&下载
 
-- 使用文档
-- 二次开发文档
+- [使用文档](./doc/use/README.md)
+- [二次开发文档](./doc/dev/README.md)
 
 #### 使用  
 
