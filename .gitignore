@@ -32,4 +32,4 @@ Thumbs.db
 # *.zip
 # *.tar
 # *.tar.gz
-node_modules/
+node_modules
