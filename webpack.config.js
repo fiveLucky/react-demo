@@ -1,5 +1,8 @@
 module.exports = {
-	entry: './src/index.js',
+	entry: {
+		app: './src/index.js',
+		vendors: '',
+	},
 	output: {
 		path: __dirname,
 		filename: './release/bundle.js'
