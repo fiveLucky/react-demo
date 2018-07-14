@@ -1,4 +1,4 @@
-
+const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -27,4 +27,9 @@ module.exports = {
 			template: 'template/index.html'
 		})
 	],
+	devServer: {
+		contentBase: path.join(__dirname, 'release'),
+		compress: true,  // gzip
+		port: 9000
+	}
 };

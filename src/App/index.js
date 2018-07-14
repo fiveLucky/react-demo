@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import List from './List';
 
-
-export default class Index extends Component {
+class Index extends Component {
 	componentDidMount() {
 		alert('this is parent didmount');
 	}
 
 	renderList() {
-		return List;
+		return <List />;
 	}
 	render() {
 		return <div>
@@ -19,3 +19,4 @@ export default class Index extends Component {
 		</div>;
 	}
 }
+ReactDOM.render(<Index />, document.getElementById('app'));
