@@ -4,7 +4,7 @@ import List from './List';
 
 class Index extends Component {
 	componentDidMount() {
-		alert('this is parent didmount');
+		console.log('this is parent didmount');
 	}
 
 	renderList() {
