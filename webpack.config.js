@@ -25,6 +25,7 @@ module.exports = {
 			{
 				test: /\.less$/,
 				loader: 'style-loader!css-loader!less-loader'
+
 			},
 			{
 				test: /\.css$/,
@@ -36,7 +37,7 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: 'template/index.html'
 		}),
-		new webpack.HotModuleReplacementPlugin()
+		new webpack.HotModuleReplacementPlugin(),
 	],
 	devtool: 'source-map',
 	devServer: {
