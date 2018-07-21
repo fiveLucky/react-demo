@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import List from './List';
+import Detail from './Detail';
 
 class Index extends Component {
 	componentDidMount() {
@@ -13,6 +14,7 @@ class Index extends Component {
 	render() {
 		return <>
 			<List />
+			<Detail />
 		</>;
 	}
 }

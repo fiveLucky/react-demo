@@ -43,6 +43,6 @@ module.exports = {
 	devServer: {
 		contentBase: path.join(__dirname, 'release'),
 		port: 9000,
-		hotOnly: true
+		hot: true
 	}
 };
