@@ -11,12 +11,9 @@ class Index extends Component {
 		return <List />;
 	}
 	render() {
-		return <div>
-			<div>this is parent</div>;
-			{
-				this.renderList()
-			}
-		</div>;
+		return <>
+			<List />
+		</>;
 	}
 }
 ReactDOM.render(<Index />, document.getElementById('app'));
