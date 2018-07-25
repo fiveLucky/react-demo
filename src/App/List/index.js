@@ -9,7 +9,7 @@ export default class Detail extends Component {
 		return (
 			<>
 				<div className={style.container}> this is fragment block </div>
-				<div> this is fragment block </div>
+				<div className="container"> this is fragment block </div>
 			</>
 		);
 

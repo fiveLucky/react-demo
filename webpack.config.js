@@ -39,7 +39,14 @@ module.exports = {
 							loader: 'less-loader'
 						}
 					]
-				})
+				}),
+				exclude: /style/
+			},
+			{
+				test: /\.less$/,
+				loader: 'style-loader!css-loader!less-loader',
+				exclude: /(node_modules)/,
+				include: /style/,
 			},
 			{
 				test: /\.css$/,
