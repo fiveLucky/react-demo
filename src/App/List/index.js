@@ -3,7 +3,16 @@ import React, { Component } from 'react';
 import style from './index.less';
 export default class Detail extends Component {
 	componentDidMount() {
-		// alert('this is list page');
+		this.getTitle().then(() => {
+			console.log('then');
+		}, (err) => {
+			console.log(err);
+		}).catch(err => {
+			console.log(err);
+		});
+	}
+	async getTitle() {
+		throw new Error('I am a error');
 	}
 	render() {
 		return (
