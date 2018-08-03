@@ -3,15 +3,12 @@ import React, { Component } from 'react';
 import style from './index.less';
 export default class List extends Component {
 	componentDidMount() {
-		// alert('this is list page');
-		new Promise((res) => {
-			res();
-		}).then(() => {
-			console.log('aaa');
-			setTimeout(() => {
-				console.log('ssssss');
-			}, 5000);
-		});
+		this.getTitle().catch(err => { console.log(err); });
+		const myArr = [1, 3, 4, 5];
+		myArr.map(num => console.log(num));
+	}
+	async getTitle() {
+		throw new Error('I am a error');
 	}
 	render() {
 		return (

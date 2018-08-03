@@ -10,6 +10,8 @@ export default class Detail extends Component {
 		}).catch(err => {
 			console.log(err);
 		});
+		const myArr = [1, 3, 4, 5];
+		myArr.map(num => console.log(num));
 	}
 	async getTitle() {
 		throw new Error('I am a error');
