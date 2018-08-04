@@ -9,7 +9,11 @@
       {
         "helper": false,
         "polyfill": false,
+<<<<<<< HEAD
         "moduleName": "@babel/runtime"
+=======
+        "module-name": "@babel/runtime"
+>>>>>>> b2cd554a55ddf574dc4dded48b699bd36f373b48
       }
     ]
   ]
