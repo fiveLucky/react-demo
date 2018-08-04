@@ -3,5 +3,14 @@
     "@babel/preset-env",
     "@babel/react"
   ],
-  "plugins": []
+  "plugins": [
+    [
+      "@babel/transform-runtime",
+      {
+        "helper": false,
+        "polyfill": false,
+        "moduleName": "@babel/runtime"
+      }
+    ]
+  ]
 }
