@@ -3,18 +3,20 @@ import React, { Component } from 'react';
 import style from './index.less';
 export default class Detail extends Component {
 	componentDidMount() {
-		this.getTitle().then(() => {
-			console.log('then');
-		}, (err) => {
-			console.log(err);
-		}).catch(err => {
-			console.log(err);
-		});
+		// test async
+		this.getTitle().then(str => { console.log('Detail test async', str); });
+
+		// test includes
 		const myArr = [1, 3, 4, 5];
-		myArr.map(num => console.log(num));
+		console.log('Detail test includes', myArr.includes(3));
+
+		// test Map
+		const testMap = new Map();
+		testMap.set('m', 'this is map');
+		console.log('Detail test Map', testMap.get('m'));
 	}
 	async getTitle() {
-		throw new Error('I am a error');
+		return 'this is async function';
 	}
 	render() {
 		return (
@@ -23,6 +25,6 @@ export default class Detail extends Component {
 				<div className="container"> this is fragment block </div>
 			</>
 		);
-
 	}
 }
+
