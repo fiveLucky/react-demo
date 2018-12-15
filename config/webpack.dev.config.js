@@ -9,8 +9,8 @@ module.exports = {
 		index: './src/index.js',
 	},
 	output: {
-		path: __dirname + '/release',
-		filename: './bundle.js'
+		path: path.resolve(__dirname, '../release'),
+		filename: './[name]-bundle.js'
 	},
 	module: {
 		rules: [
@@ -62,7 +62,7 @@ module.exports = {
 	],
 	devtool: 'source-map',
 	devServer: {
-		contentBase: path.join(__dirname, 'release'),
+		contentBase: path.resolve(__dirname, 'release'),
 		port: 9000,
 		hot: true
 	}

@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "release": "webpack",
-    "dev": "webpack --mode=development --config=config/webpack.dev.config.js && webpack-dev-server --open",
+    "dev": "webpack --mode=development --config=config/webpack.dev.config.js",
+    "start": "webpack-dev-server --mode=development --config=config/webpack.dev.config.js --open",
     "prd": "webpack --mode=production",
     "example": ""
   },
