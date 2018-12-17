@@ -3622,6 +3622,14 @@ mimic-fn@^1.0.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/mimic-fn/-/mimic-fn-1.2.0.tgz#820c86a39334640e99516928bd03fca88057d022"
 
+mini-css-extract-plugin@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/mini-css-extract-plugin/-/mini-css-extract-plugin-0.5.0.tgz#ac0059b02b9692515a637115b0cc9fed3a35c7b0"
+  dependencies:
+    loader-utils "^1.1.0"
+    schema-utils "^1.0.0"
+    webpack-sources "^1.1.0"
+
 mini-store@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/mini-store/-/mini-store-2.0.0.tgz#0843c048d6942ce55e3e78b1b67fc063022b5488"
@@ -4661,8 +4669,8 @@ rc-switch@~1.8.0:
     prop-types "^15.5.6"
 
 rc-table@~6.4.0:
-  version "6.4.1"
-  resolved "https://registry.yarnpkg.com/rc-table/-/rc-table-6.4.1.tgz#71a687318efd4595fb04d46c0229a88d043fa6af"
+  version "6.4.2"
+  resolved "https://registry.yarnpkg.com/rc-table/-/rc-table-6.4.2.tgz#97fdb52fc7817915178aead974d77c21d20236a6"
   dependencies:
     babel-runtime "6.x"
     classnames "^2.2.5"
