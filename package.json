@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "release": "webpack",
-    "dev": "webpack --mode=development --config=config/webpack.dev.config.js",
+    "dev": "webpack --mode=development --config=config/webpack.dev.config.js --progress --color",
     "start": "webpack-dev-server --mode=development --config=config/webpack.dev.config.js --open",
     "prd": "webpack --mode=production",
     "example": ""
@@ -52,6 +52,7 @@
     "mobx": "^5.0.3",
     "mobx-react": "^5.2.3",
     "react": "^16.4.1",
-    "react-dom": "^16.4.1"
+    "react-dom": "^16.4.1",
+    "react-router": "^4.3.1"
   }
 }
