@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { PropTypes } from 'mobx-react';
-
+import { Layout } from 'antd';
 
 import Menu from './Menu';
 import Header from './Header';
@@ -15,9 +15,13 @@ export default class Index extends Component {
 	render() {
 		return (
 			<div className={styles.container}>
-				<Header />
-				<Menu />
-				<Content />
+				<Layout>
+					<Menu />
+					<Layout>
+						<Header />
+						<Content />
+					</Layout>
+				</Layout>
 			</div>
 		);
 	}

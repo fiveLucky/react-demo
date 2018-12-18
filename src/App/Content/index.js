@@ -18,14 +18,12 @@ export default class Content extends Component {
 		const { path } = this.props.match;
 		return (
 			<div className={styles.contentContainer}>
-				<div className={styles.contentBody} id="content-root">
-					<Suspense fallback={'loading'}>
-						<Switch>
-							<Route path={`${path}Demo`} component={DemoList}></Route>
-							<Route path={`${path}Home`} component={Home}></Route>
-						</Switch>
-					</Suspense>
-				</div>
+				<Suspense fallback={'loading'}>
+					<Switch>
+						<Route path={`${path}`} component={Home}></Route>
+						<Route path={`${path}Demo`} component={DemoList}></Route>
+					</Switch>
+				</Suspense>
 			</div>
 		);
 	}

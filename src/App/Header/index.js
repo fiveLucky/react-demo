@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Layout } from 'antd';
 
+import { Layout, Avatar, Badge } from 'antd';
 
 import styles from '../index.less';
 
@@ -11,11 +11,13 @@ export default class Header extends Component {
 
 	render() {
 		return (
-			<div className={styles.menuContainer}>
-				<Layout>
-					<H style={{ background: '#fff', padding: 0 }} />
-				</Layout>
-			</div>
+			<H style={{ background: '#fff', padding: 0 }}>
+				<div className={styles.avatar}>
+					<span>
+						<Badge count={1}><Avatar style={{ backgroundColor: '#1890ff' }} icon="user" shape="square" /></Badge>
+					</span>
+				</div>
+			</H>
 		);
 	}
 }
