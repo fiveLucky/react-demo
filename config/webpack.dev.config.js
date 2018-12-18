@@ -60,6 +60,7 @@ module.exports = {
 	devServer: {
 		contentBase: path.resolve(__dirname, 'release'),
 		port: 9000,
-		hot: true
+		hot: true,
+		historyApiFallback: true
 	}
 };
