@@ -6,16 +6,16 @@ export default [
   },
   {
     navName: '示例1',
-    path: '/Demo1',
+    path: '/Demo',
     children: [
       {
         navName: '列表',
-        path: '/Demo1/List',
+        path: '/Demo',
         children: [],
       },
       {
         navName: '详情',
-        path: '/Demo1/Detail',
+        path: '/Demo/Detail',
         children: [],
       },
     ],

@@ -23,6 +23,7 @@ export default class Detail extends Component {
 					onCollapse={onCollapse}
 					className={styles.sider}
 				>
+					<div className={styles.logoArea}><Icon type="github" className={styles.logoIcon} /></div>
 					<Menu
 						theme="dark"
 						mode="inline"
@@ -42,7 +43,7 @@ export default class Detail extends Component {
 								}
 								return (<Menu.Item onClick={this.onClickMenu} key={item.path}>
 									<Icon type="pie-chart" />
-									<Link to={item.path}>{item.navName}</Link>
+									<Link className={styles.link} to={item.path}>{item.navName}</Link>
 								</Menu.Item>);
 							})
 						}
