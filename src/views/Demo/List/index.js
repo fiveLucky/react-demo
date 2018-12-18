@@ -35,10 +35,11 @@ export default class List extends Component {
     store.fetchDataSource();
   }
   render() {
+    const { loading, dataSource } = store;
     return (
       <div className={styles.container}>
         <div className={styles.title}>This is list</div>
-        <Table dataSource={toJS(store.dataSource)} columns={columns}></Table>
+        <Table dataSource={toJS(dataSource)} loading={loading} columns={columns}></Table>
       </div>
     );
   }

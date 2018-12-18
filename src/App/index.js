@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import Menu from './Menu';
-import Content from './Content';
 import { PropTypes } from 'mobx-react';
+
+
+import Menu from './Menu';
+import Header from './Header';
+import Content from './Content';
 
 import styles from './index.less';
 
@@ -11,7 +14,8 @@ export default class Index extends Component {
 	}
 	render() {
 		return (
-			<div className={styles.menuContainer}>
+			<div className={styles.container}>
+				<Header />
 				<Menu />
 				<Content />
 			</div>
