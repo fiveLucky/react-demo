@@ -3,7 +3,7 @@
 这是一个demo
 #### 简介  
 
->涉及的技术栈：react16+webpack4+redux+react-router  
+>涉及的技术栈：react16.6+webpack4+mobx5+react-router4+babel7+antd3+less2  
 
 #### 安装&下载
 
