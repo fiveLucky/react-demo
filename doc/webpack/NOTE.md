@@ -3,6 +3,8 @@
 
 ## Base
 ### 编译
+#### html
+- html-loader: 解析html文件
 #### 样式
 - style: style-loader（将css样式使用style标签插入到html head内）
 - css: 
