@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { Menu, Layout, Icon } from 'antd';
 import { observer } from 'mobx-react';
 
@@ -11,6 +11,7 @@ import styles from '../index.less';
 const { SubMenu } = Menu;
 const { Sider } = Layout;
 
+@withRouter
 @observer
 export default class Detail extends Component {
 	render() {
