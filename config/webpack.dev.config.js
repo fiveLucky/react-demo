@@ -1,7 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
-// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 
 module.exports = {
@@ -17,7 +16,10 @@ module.exports = {
 			{
 				test: /\.jsx?$/,
 				exclude: /(node_modules)/,
-				loader: 'babel-loader'
+				use: [
+					'babel-loader',
+					path.resolve(__dirname, './lazyLoader.js')
+				]
 			},
 			{
 				test: /\.html$/,
@@ -51,7 +53,6 @@ module.exports = {
 		],
 	},
 	plugins: [
-		// new MiniCssExtractPlugin({ filename: "style@[contenthash].css" }),
 		new HtmlWebpackPlugin({
 			template: 'template/index.html'
 		}),
