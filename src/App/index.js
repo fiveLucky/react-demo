@@ -15,7 +15,7 @@ export default class Index extends Component {
 					<Menu />
 					<Layout>
 						<Header />
-						<Content />
+						<Content>{this.props.children}</Content>
 					</Layout>
 				</Layout>
 			</div>
