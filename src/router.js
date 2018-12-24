@@ -6,8 +6,8 @@ import './style/component';
 import App from './App';
 
 
-const DemoList = lazy(() => import(/* webpackChunkName: "./views/Demo" */ './views/Demo'));
-const Home = lazy(() => import('./views/Home'));
+const DemoList = lazy('./views/Demo');
+const Home = lazy('./views/Home');
 
 export default class Router extends Component {
   render() {

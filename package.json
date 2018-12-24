@@ -8,7 +8,8 @@
     "release": "webpack",
     "dev": "webpack --mode=development --config=config/webpack.dev.config.js --progress --color",
     "start": "webpack-dev-server --mode=development --config=config/webpack.dev.config.js --open",
-    "prd": "webpack --mode=production",
+    "prd": "webpack --mode=production --config=config/webpack.prod.config.js --progress",
+    "build": "yarn run prd",
     "example": ""
   },
   "repository": {
@@ -47,7 +48,8 @@
     "style-loader": "^0.23.1",
     "webpack": "^4.27.1",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.10"
+    "webpack-dev-server": "^3.1.10",
+    "webpack-parallel-uglify-plugin": "^1.1.0"
   },
   "dependencies": {
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
