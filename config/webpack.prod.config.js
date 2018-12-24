@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
@@ -7,6 +8,19 @@ const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
 module.exports = {
   entry: {
     index: './src/index.js',
+    vendors: [
+      'react',
+      'react-dom',
+      'react-router',
+      'moment',
+      'mobx',
+      'mobx-react',
+      'rc-menu',
+      'rc-notification',
+      'rc-tooltip',
+      'rc-select',
+      'rc-table',
+    ]
   },
   output: {
     path: path.resolve(__dirname, '../release'),
@@ -14,6 +28,28 @@ module.exports = {
     chunkFilename: './[name]@[chunkhash].js'
   },
   optimization: {
+    splitChunks: {
+      chunks: 'async',
+      minSize: 30000,
+      // maxSize: 0,
+      // minChunks: 1,
+      // maxAsyncRequests: 5,
+      // maxInitialRequests: 3,
+      // automaticNameDelimiter: '~',
+      name: true,
+      cacheGroups: {
+        // vendors: {
+        //   test: /[\\/]node_modules[\\/]/,
+        //   priority: -10
+        // },
+        common: {
+          test: /[\\/]src[\\/]/,
+          minChunks: 1,
+          priority: -20,
+          reuseExistingChunk: true,
+        },
+      }
+    }
 
   },
   module: {
@@ -57,12 +93,16 @@ module.exports = {
     ],
   },
   plugins: [
-    new MiniCssExtractPlugin({ filename: "style@[contenthash].css" }),
+    new MiniCssExtractPlugin({
+      filename: "style@[contenthash].css",
+      chunkFilename: "style@[contenthash].css"
+    }),
     new HtmlWebpackPlugin({
       template: 'template/index.html'
     }),
     new ParallelUglifyPlugin({
       cacheDir: '.cache/',
-    })
+    }),
+    new webpack.NoEmitOnErrorsPlugin(),
   ],
 };
