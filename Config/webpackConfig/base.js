@@ -1,14 +1,12 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
 const { spliceRootPath, spliceDirPath } = require('../util');
 const { outputPath, publicPath } = require('../../project.config.js').output;
 
-
+const isProd = process.env.NODE_ENV === 'production';
 
 const config = {
-  mode: 'production',
   entry: {
     index: './src/index.js',
     vendors: [
@@ -31,31 +29,6 @@ const config = {
     filename: '[name]@[chunkhash].js',
     chunkFilename: '[name]@[chunkhash].js'
   },
-  optimization: {
-    splitChunks: {
-      chunks: 'async',
-      minSize: 30000,
-      // maxSize: 0,
-      // minChunks: 1,
-      // maxAsyncRequests: 5,
-      // maxInitialRequests: 3,
-      // automaticNameDelimiter: '~',
-      name: true,
-      cacheGroups: {
-        // vendors: {
-        //   test: /[\\/]node_modules[\\/]/,
-        //   priority: -10
-        // },
-        common: {
-          test: /[\\/]src[\\/]/,
-          minChunks: 1,
-          priority: -20,
-          reuseExistingChunk: true,
-        },
-      }
-    }
-
-  },
   module: {
     rules: [
       {
@@ -73,7 +46,7 @@ const config = {
       {
         test: /\.less$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          isProd ? MiniCssExtractPlugin.loader : 'style-loader',
           {
             loader: 'css-loader',
             options: {
@@ -97,15 +70,8 @@ const config = {
     ],
   },
   plugins: [
-    new MiniCssExtractPlugin({
-      filename: "style@[contenthash].css",
-      chunkFilename: "style@[contenthash].css"
-    }),
     new HtmlWebpackPlugin({
       template: 'template/index.html'
-    }),
-    new ParallelUglifyPlugin({
-      cacheDir: '.cache/',
     }),
     new webpack.NoEmitOnErrorsPlugin(),
   ],

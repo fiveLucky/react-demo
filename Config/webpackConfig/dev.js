@@ -1,14 +1,15 @@
-const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const userConfig = require('../../project.config.js').output;
+const { outputPath, publicPath } = require('../../project.config.js').output;
+const { spliceRootPath, spliceDirPath } = require('../util');
 
 module.exports = {
 	mode: 'development',
 	entry: ['./src/index.js',],
 	output: {
-		path: path.resolve(__dirname, userConfig.outputPath),
-		filename: './[name]-bundle.js',
-		publicPath: userConfig.publicPath,
+		path: spliceRootPath(outputPath),
+		publicPath,
+		filename: '[name]-bundle.js',
+		chunkFilename: '[name]@[chunkhash].js'
 	},
 	module: {
 		rules: [
@@ -17,7 +18,7 @@ module.exports = {
 				exclude: /(node_modules)/,
 				use: [
 					'babel-loader',
-					path.resolve(__dirname, './lazyLoader.js')
+					spliceDirPath(__dirname, 'lazyLoader.js')
 				]
 			},
 			{
@@ -57,7 +58,7 @@ module.exports = {
 	],
 	devtool: 'inline-source-map',
 	devServer: {
-		contentBase: path.resolve(__dirname, userConfig.outputPath),
+		contentBase: spliceRootPath(outputPath),
 		historyApiFallback: true,
 		open: true
 	}

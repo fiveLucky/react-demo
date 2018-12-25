@@ -5,13 +5,11 @@
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "release": "webpack",
     "dev": "webpack --mode=development --config=Config/webpackConfig/dev.js --progress --color",
     "start": "node ./Config/server",
     "prd": "webpack --mode=production --config=Config/webpackConfig/prod.js --progress",
     "analyze": "webpack --mode=production --config=Config/webpackConfig/analyze.js --progress",
-    "build": "yarn run prd",
-    "example": ""
+    "build": "yarn run prd"
   },
   "repository": {
     "type": "git",
