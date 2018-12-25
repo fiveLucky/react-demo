@@ -1,15 +1,14 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
-
+const userConfig = require('../../project.config.js');
 
 module.exports = {
-	entry: {
-		index: './src/index.js',
-	},
+	mode: 'development',
+	entry: ['./src/index.js',],
 	output: {
-		path: path.resolve(__dirname, '../release'),
-		filename: './[name]-bundle.js'
+		path: path.resolve(__dirname, userConfig.outputPath),
+		filename: './[name]-bundle.js',
+		publicPath: userConfig.publicPath,
 	},
 	module: {
 		rules: [
@@ -28,7 +27,6 @@ module.exports = {
 			{
 				test: /\.less$/,
 				use: [
-					// MiniCssExtractPlugin.loader,
 					"style-loader",
 					{
 						loader: 'css-loader',
@@ -56,13 +54,11 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: 'template/index.html'
 		}),
-		new webpack.HotModuleReplacementPlugin(),
 	],
-	devtool: 'source-map',
+	devtool: 'inline-source-map',
 	devServer: {
-		contentBase: path.resolve(__dirname, 'release'),
-		port: 9000,
-		hot: true,
-		historyApiFallback: true
+		contentBase: path.resolve(__dirname, userConfig.outputPath),
+		historyApiFallback: true,
+		open: true
 	}
 };

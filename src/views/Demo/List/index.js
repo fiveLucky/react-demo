@@ -43,7 +43,7 @@ export default class List extends Component {
     return (
       <div className={styles.container}>
         <div className={styles.title}>This is list</div>
-        <Table dataSource={toJS(dataSource)} loading={loading} columns={columns}></Table>
+        <Table dataSource={toJS(dataSource)} loading={loading} columns={columns} />
       </div>
     );
   }
