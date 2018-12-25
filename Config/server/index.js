@@ -22,8 +22,8 @@ koaWebpack({
 });
 
 
-app.listen(4000, () => {
-  console.log('server start at port 4000');
+app.listen(userConfig.port, () => {
+  console.log(`server start at port ${userConfig.port}`);
   if (userConfig.open) {
     execSync(`open http://localhost:${userConfig.port}`);
   }
