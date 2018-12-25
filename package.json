@@ -6,9 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "release": "webpack",
-    "dev": "webpack --mode=development --config=config/webpack.dev.config.js --progress --color",
-    "start": "webpack-dev-server --mode=development --config=config/webpack.dev.config.js --open",
-    "prd": "webpack --mode=production",
+    "dev": "webpack --mode=development --config=Config/webpackConfig/dev.js --progress --color",
+    "start": "node ./Config/server",
+    "prd": "webpack --mode=production --config=Config/webpackConfig/prod.js --progress",
+    "analyze": "webpack --mode=production --config=Config/webpackConfig/analyze.js --progress",
+    "build": "yarn run prd",
     "example": ""
   },
   "repository": {
@@ -42,13 +44,19 @@
     "file-loader": "^1.1.11",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
+    "koa": "^2.6.2",
+    "koa-static": "^5.0.0",
+    "koa-webpack": "^5.1.1",
     "less": "^2.7.0",
     "less-loader": "^4.1.0",
     "mini-css-extract-plugin": "^0.5.0",
+    "speed-measure-webpack-plugin": "^1.2.3",
     "style-loader": "^0.23.1",
     "webpack": "^4.27.1",
+    "webpack-bundle-analyzer": "^3.0.3",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.10"
+    "webpack-dev-server": "^3.1.10",
+    "webpack-parallel-uglify-plugin": "^1.1.0"
   },
   "dependencies": {
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
