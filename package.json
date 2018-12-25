@@ -6,9 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "release": "webpack",
-    "dev": "webpack --mode=development --config=config/webpack.dev.config.js --progress --color",
+    "dev": "webpack --mode=development --config=webpackConfig/dev.js --progress --color",
     "start": "webpack-dev-server --mode=development --config=config/webpack.dev.config.js --open",
-    "prd": "webpack --mode=production --config=config/webpack.prod.config.js --progress",
+    "prd": "webpack --mode=production --config=webpackConfig/prod.js --progress",
+    "analyze": "webpack --mode=production --config=webpackConfig/analyze.js --progress",
     "build": "yarn run prd",
     "example": ""
   },
@@ -45,8 +46,10 @@
     "less": "^2.7.0",
     "less-loader": "^4.1.0",
     "mini-css-extract-plugin": "^0.5.0",
+    "speed-measure-webpack-plugin": "^1.2.3",
     "style-loader": "^0.23.1",
     "webpack": "^4.27.1",
+    "webpack-bundle-analyzer": "^3.0.3",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10",
     "webpack-parallel-uglify-plugin": "^1.1.0"

@@ -3,9 +3,9 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
-
-module.exports = {
+const config = {
   entry: {
     index: './src/index.js',
     vendors: [
@@ -106,3 +106,9 @@ module.exports = {
     new webpack.NoEmitOnErrorsPlugin(),
   ],
 };
+if (process.argv.indexOf("--view") > -1) {
+  config.plugins.push(new BundleAnalyzerPlugin());
+}
+
+
+module.exports = config;
