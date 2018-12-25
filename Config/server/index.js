@@ -5,12 +5,13 @@ const execSync = require('child_process').execSync;
 
 
 const webpackDevConfig = require('../webpackConfig/dev');
-const userConfig = require('../../project.config.js');
+const userConfig = require('../../project.config.js').devServer;
 
 const app = new Koa();
 
 koaWebpack({
-  config: webpackDevConfig
+  config: webpackDevConfig,
+  hotClient: userConfig.hot && {},
 }).then(middleware => {
   app.use(middleware);
   app.use(async ctx => {

@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const userConfig = require('../../project.config.js');
+const userConfig = require('../../project.config.js').output;
 
 module.exports = {
 	mode: 'development',
