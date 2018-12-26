@@ -4,7 +4,6 @@ import { Menu, Layout, Icon } from 'antd';
 import { observer } from 'mobx-react';
 
 
-import Model from './model';
 import store from '../store';
 import styles from '../index.less';
 
@@ -14,8 +13,11 @@ const { Sider } = Layout;
 @withRouter
 @observer
 export default class Detail extends Component {
+	componentDidMount() {
+		store.fetchMenuTree();
+	}
 	render() {
-		const { collapsed, onCollapse } = store;
+		const { collapsed, onCollapse, menuTree } = store;
 		return (
 			<div className={styles.menuContainer}>
 				<Sider
@@ -30,7 +32,7 @@ export default class Detail extends Component {
 						mode="inline"
 					>
 						{
-							Model.map(item => {
+							menuTree.map(item => {
 								if (item.children.length > 0) {
 									return (
 										<SubMenu key={item.path}
