@@ -7,8 +7,9 @@ const { outputPath, publicPath } = require('../../project.config.js').output;
 const isProd = process.env.NODE_ENV === 'production';
 
 const config = {
+  mode: isProd ? 'production' : 'development',
   entry: {
-    index: './src/index.js',
+    index: ['./src/index.js'],
     vendors: [
       'react',
       'react-dom',
@@ -26,8 +27,7 @@ const config = {
   output: {
     path: spliceRootPath(outputPath),
     publicPath,
-    filename: '[name]@[chunkhash].js',
-    chunkFilename: '[name]@[chunkhash].js'
+    filename: isProd ? '[name]@[hash].js' : '[name].js',
   },
   module: {
     rules: [
@@ -56,7 +56,8 @@ const config = {
           },
           "less-loader",
         ],
-        exclude: /style/
+        exclude: /style/,
+        include: /src/
       },
       {
         test: /\.less$/,
