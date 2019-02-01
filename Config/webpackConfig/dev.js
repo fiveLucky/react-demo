@@ -5,6 +5,9 @@ const baseConfig = require('./base');
 
 const devConfig = {
 	devtool: 'inline-source-map',
+	output: {
+		publicPath: '/',
+	},
 	devServer: {
 		contentBase: spliceRootPath(outputPath),
 		historyApiFallback: true,
