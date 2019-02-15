@@ -10,18 +10,21 @@ const fs = require('fs');
 const app = new Koa();
 const router = new Router();
 
-app.use(stat(process.cwd() + '/release'));
+app.use(stat(process.cwd() + '/dist'));
+app.use(async (ctx, next) => {
+    console.log(ctx.url);
+    next();
+});
 
 router.get('/*', (ctx, next) => {
-    console.log(ctx.params);
     ctx.response.type = 'html';
-    ctx.response.body = fs.readFileSync(process.cwd() + '/release/index.html');
+    ctx.response.body = fs.readFileSync(process.cwd() + '/dist/index.html');
     next();
 });
 
 
-app.use(router.routes())
-    .use(router.allowedMethods());
+// app.use(router.routes())
+//     .use(router.allowedMethods());
 
 app.listen(5000, () => {
     console.log(`prod server start at port 5000`);

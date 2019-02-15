@@ -1,7 +1,7 @@
 module.exports = {
   output: {
     publicPath: './',      // js加载路径
-    outputPath: './release', // 打包输出的文件夹
+    outputPath: './dist', // 打包输出的文件夹
   },
   devServer: {
     port: 4000, // 本地开发服务端口
