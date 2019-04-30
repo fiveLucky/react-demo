@@ -23,8 +23,8 @@ router.get('/*', (ctx, next) => {
 });
 
 
-// app.use(router.routes())
-//     .use(router.allowedMethods());
+app.use(router.routes())
+    .use(router.allowedMethods());
 
 app.listen(5000, () => {
     console.log(`prod server start at port 5000`);
