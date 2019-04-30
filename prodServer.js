@@ -16,7 +16,7 @@ app.use(async (ctx, next) => {
     next();
 });
 
-router.get('/*', (ctx, next) => {
+router.get('/web*', (ctx, next) => {
     ctx.response.type = 'html';
     ctx.response.body = fs.readFileSync(process.cwd() + '/dist/index.html');
     next();
@@ -28,5 +28,5 @@ app.use(router.routes())
 
 app.listen(5000, () => {
     console.log(`prod server start at port 5000`);
-    execSync('open http://localhost:5000');
+    execSync('open http://localhost:5000/web');
 });
