@@ -1,6 +1,6 @@
 module.exports = {
   output: {
-    publicPath: './',      // js加载路径
+    publicPath: '/',      // js加载路径
     outputPath: './dist', // 打包输出的文件夹
   },
   devServer: {
