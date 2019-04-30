@@ -3,21 +3,21 @@ import { observable, action } from 'mobx';
 const menuTree = [
   {
     navName: '首页',
-    path: '/',
+    path: '/web',
     children: [],
   },
   {
     navName: '示例1',
-    path: '/Demo',
+    path: '/web/Demo',
     children: [
       {
         navName: '列表',
-        path: '/Demo',
+        path: '/web/Demo',
         children: [],
       },
       {
         navName: '详情',
-        path: '/Demo/Detail',
+        path: '/web/Demo/Detail',
         children: [],
       },
     ],

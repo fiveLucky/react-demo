@@ -16,8 +16,8 @@ export default class Router extends Component {
         <App>
           <Suspense fallback={'loading'}>
             <Switch>
-              <Route exact path={`/`} component={Home}></Route>
-              <Route path={`/Demo`} component={DemoList}></Route>
+              <Route exact path={`/web`} component={Home}></Route>
+              <Route path={`/web/Demo`} component={DemoList}></Route>
             </Switch>
           </Suspense>
         </App>
