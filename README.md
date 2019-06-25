@@ -1,4 +1,4 @@
-# Demo
+# react-demo
 
 这是一个demo
 #### 简介  
@@ -7,8 +7,8 @@
 
 #### 安装&下载
 
-- 下载地址 https://github.com/SkyblueWZZQ/Demo/releases
-- CDN http://unpkg.com/demo/release/bundle.js
+- 下载地址 https://github.com/SkyblueWZZQ/react-demo/releases
+- CDN http://unpkg.com/react-demo/release/bundle.js
 - `npm i demo`
 
 #### 文档
@@ -23,7 +23,7 @@ how to use
 
 #### Q&A
 
-[欢迎提问](https://github.com/SkyblueWZZQ/Demo/issues)  
+[欢迎提问](https://github.com/SkyblueWZZQ/react-demo/issues)  
 
 #### 关于作者
 
