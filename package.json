@@ -5,10 +5,10 @@
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack --mode=development --config=Config/webpackConfig/dev.js --progress --color",
+    "dev": "webpack --mode=development --config=Config/webpack/dev.js --progress --color",
     "start": "node ./Config/server",
-    "prd": "webpack --mode=production --config=Config/webpackConfig/prod.js --progress",
-    "analyze": "webpack --mode=production --config=Config/webpackConfig/analyze.js --progress",
+    "prd": "webpack --mode=production --config=Config/webpack/prod.js --progress",
+    "analyze": "webpack --mode=production --config=Config/webpack/analyze.js --progress",
     "build": "yarn run prd",
     "test-prod": " yarn run build && node ./prodServer.js"
   },

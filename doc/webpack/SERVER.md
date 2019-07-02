@@ -15,7 +15,7 @@ const koaWebpack = require('koa-webpack');
 const path = require('path');
 const execSync = require('child_process').execSync;
 
-const webpackDevConfig = require('../webpackConfig/dev');
+const webpackDevConfig = require('../webpack/dev');
 
 const userConfig = require('../../project.config.js').devServer;
 // 可以把一些常用配置抽出一个文件供开发者配置
@@ -66,7 +66,7 @@ module.exports = {
 };
 ```
 
-- webpackConfig/dev.js
+- webpack/dev.js
 
 ```
 const path = require('path');

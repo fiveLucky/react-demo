@@ -4,7 +4,7 @@ const path = require('path');
 const execSync = require('child_process').execSync;
 
 
-const webpackDevConfig = require('../webpackConfig/dev');
+const webpackDevConfig = require('../webpack/dev');
 const userConfig = require('../../project.config.js').devServer;
 
 const app = new Koa();
