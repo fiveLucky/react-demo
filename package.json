@@ -7,10 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack --mode=development --config=Config/webpack/dev.js --progress --color",
     "start": "node ./Config/server",
-    "prd": "webpack --mode=production --config=Config/webpack/prod.js --progress",
+    "build": "webpack --mode=production --config=Config/webpack/prod.js --progress",
     "analyze": "webpack --mode=production --config=Config/webpack/analyze.js --progress",
-    "build": "yarn run prd",
-    "test-prod": " yarn run build && node ./prodServer.js"
+    "test-prod": "NODE_ENV=production yarn run build && node ./prodServer.js"
   },
   "repository": {
     "type": "git",
@@ -32,6 +31,7 @@
     "@babel/plugin-transform-runtime": "^7.0.0-beta.55",
     "@babel/preset-env": "^7.0.0-beta.54",
     "@babel/preset-react": "^7.0.0-beta.54",
+    "autoprefixer": "^9.6.0",
     "babel-eslint": "^8.2.6",
     "babel-loader": "^8.0.0-beta.4",
     "babel-plugin-import": "^1.11.0",
@@ -50,6 +50,7 @@
     "less": "^2.7.0",
     "less-loader": "^4.1.0",
     "mini-css-extract-plugin": "^0.5.0",
+    "postcss-loader": "^3.0.0",
     "speed-measure-webpack-plugin": "^1.2.3",
     "style-loader": "^0.23.1",
     "webpack": "^4.27.1",

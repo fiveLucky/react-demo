@@ -4,7 +4,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { spliceRootPath, spliceDirPath } = require('../util');
 const { outputPath, publicPath } = require('../../project.config.js').output;
 
-const isProd = process.env.NODE_ENV === 'production';
+const isProd = process.env.NODE_ENV === "production";
+
+
 
 const cssLoader = function (modules = true) {
   return [
@@ -17,11 +19,12 @@ const cssLoader = function (modules = true) {
           localIdentName: '[name]_[local]-[hash:base64:5]'
         }
       } : 'css-loader',
+    'postcss-loader',
   ];
 };
 
 const config = {
-  mode: isProd ? 'production' : 'development',
+  mode: isProd ? "production" : 'development',
   entry: {
     index: ['./src/index.js'],
     vendors: [

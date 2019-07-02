@@ -4,7 +4,7 @@ const Router = require('koa-router');
 const execSync = require('child_process').execSync;
 const fs = require('fs');
 
-
+console.log(process.env.NODE_ENV, 'process.env.NODE_ENV');
 
 
 const app = new Koa();
