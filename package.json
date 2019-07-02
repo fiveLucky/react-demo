@@ -6,7 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack --mode=development --config=Config/webpack/dev.js --progress --color",
-    "start": "node ./Config/server",
+    "start-dashboard": "webpack-dashboard -- node ./Config/server",
+    "start-normal": "node ./Config/server",
+    "sn": "yarn run start-normal",
+    "sd": "yarn run start-dashboard",
     "build": "NODE_ENV=production webpack --config=Config/webpack/prod.js --progress",
     "analyze": "NODE_ENV=production webpack --config=Config/webpack/analyze.js --progress",
     "test-prod": "yarn run build && node ./prodServer.js"
@@ -58,6 +61,7 @@
     "webpack": "^4.27.1",
     "webpack-bundle-analyzer": "^3.0.3",
     "webpack-cli": "^3.1.2",
+    "webpack-dashboard": "^3.0.7",
     "webpack-dev-server": "^3.1.10",
     "webpack-merge": "^4.1.5"
   },

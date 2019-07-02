@@ -2,6 +2,8 @@ const Koa = require('koa');
 const koaWebpack = require('koa-webpack');
 const path = require('path');
 const execSync = require('child_process').execSync;
+const webpack = require('webpack');
+const DashboardPlugin = require('webpack-dashboard/plugin');
 
 
 const webpackDevConfig = require('../webpack/dev');
@@ -9,9 +11,13 @@ const userConfig = require('../../project.config.js').devServer;
 
 const app = new Koa();
 
+const compiler = webpack(webpackDevConfig);
+compiler.apply(new DashboardPlugin());
 koaWebpack({
-  config: webpackDevConfig,
+  compiler,
   hotClient: userConfig.hot && {},
+  devMiddleware: {
+  }
 }).then(middleware => {
   app.use(middleware);
   app.use(async ctx => {
