@@ -5,7 +5,7 @@ const baseConfig = require('./base');
 
 const devConfig = {
 	mode: "development",
-	devtool: 'inline-source-map',
+	devtool: 'source-map',
 	output: {
 		publicPath: '/',
 	},
@@ -13,6 +13,6 @@ const devConfig = {
 		contentBase: spliceRootPath(outputPath),
 		historyApiFallback: true,
 		open: true
-	}
+	},
 };
 module.exports = webpackMerge.smart(baseConfig, devConfig);
