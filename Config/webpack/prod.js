@@ -1,10 +1,21 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpackMerge = require('webpack-merge');
+const TerserWebpackPlugin = require('terser-webpack-plugin');
+const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
 const baseConfig = require('./base');
 
 const prodConfig = {
   mode: "production",
+  // devtool: 'source-map',
   optimization: {
+    // minimize: true,// 默认开启
+    minimizer: [ // 这样就覆盖了默认的 minimizer，为了压缩css
+      new TerserWebpackPlugin({ // 这个其实和默认的minimizer效果一样，但是覆盖了，就得手动设置了
+        cache: true,
+        parallel: true
+      }),
+      new OptimizeCssAssetsWebpackPlugin() // 压缩css
+    ],
     splitChunks: {
       chunks: 'all',// async(默认)、initial（入口文件）、all（所有文件）
       minSize: 3000, // 最小的文件大小 超过这个值，小于maxsize 的包会被提取
