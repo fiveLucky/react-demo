@@ -16,8 +16,6 @@ compiler.apply(new DashboardPlugin());
 koaWebpack({
   compiler,
   hotClient: userConfig.hot && {},
-  devMiddleware: {
-  }
 }).then(middleware => {
   app.use(middleware);
   app.use(async ctx => {
