@@ -6,6 +6,20 @@ const { outputPath, publicPath } = require('../../project.config.js').output;
 
 const isProd = process.env.NODE_ENV === 'production';
 
+const cssLoader = function (modules = true) {
+  return [
+    isProd ? MiniCssExtractPlugin.loader : 'style-loader',
+    modules ?
+      {
+        loader: 'css-loader',
+        options: {
+          modules,
+          localIdentName: '[name]_[local]-[hash:base64:5]'
+        }
+      } : 'css-loader',
+  ];
+};
+
 const config = {
   mode: isProd ? 'production' : 'development',
   entry: {
@@ -41,32 +55,30 @@ const config = {
       },
       {
         test: /\.html$/,
-        loader: 'html-loader'
+        loader: 'html-loader',
+        exclude: /node_modules/
       },
       {
         test: /\.less$/,
         use: [
-          isProd ? MiniCssExtractPlugin.loader : 'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              modules: true,
-              localIdentName: '[name]_[local]-[hash:base64:5]'
-            }
-          },
+          ...cssLoader(),
           "less-loader",
         ],
-        exclude: /style/,
+        exclude: /src\/style/,
         include: /src/
       },
       {
         test: /\.less$/,
-        loader: 'style-loader!css-loader!less-loader',
+        use: [
+          ...cssLoader(false),
+          "less-loader",
+        ],
         include: /style/,
       },
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader?{"modules":true}'
+        use: cssLoader(),
+        exclude: /node_modules/
       },
     ],
   },
