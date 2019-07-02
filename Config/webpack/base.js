@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { spliceRootPath, spliceDirPath } = require('../util');
 const { outputPath, publicPath } = require('../../project.config.js').output;
 
@@ -102,7 +103,8 @@ const config = {
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-    })
+    }),
+    new CleanWebpackPlugin()
   ],
 };
 
