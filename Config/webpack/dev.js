@@ -4,6 +4,7 @@ const { spliceRootPath } = require('../util');
 const baseConfig = require('./base');
 
 const devConfig = {
+	mode: "development",
 	devtool: 'inline-source-map',
 	output: {
 		publicPath: '/',

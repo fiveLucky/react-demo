@@ -24,7 +24,6 @@ const cssLoader = function (modules = true) {
 };
 
 const config = {
-  mode: isProd ? "production" : 'development',
   entry: {
     index: ['./src/index.js'],
     vendors: [
@@ -52,7 +51,12 @@ const config = {
         test: /\.jsx?$/,
         exclude: /(node_modules)/,
         use: [
-          'babel-loader',
+          {
+            loader: 'babel-loader',
+            options: {
+              cacheDirectory: true
+            }
+          },
           spliceDirPath(__dirname, 'lazyLoader.js')
         ]
       },
@@ -90,6 +94,9 @@ const config = {
       template: 'template/index.html'
     }),
     new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+    })
   ],
 };
 
