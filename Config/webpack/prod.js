@@ -2,6 +2,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpackMerge = require('webpack-merge');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
+// const webpack = require('webpack');
 const baseConfig = require('./base');
 
 const prodConfig = {
@@ -45,6 +46,8 @@ const prodConfig = {
       filename: "style@[contenthash].css",
       chunkFilename: "style@[contenthash].css"
     }),
+    // 忽略文件，不会打包
+    // new webpack.IgnorePlugin(/@ant-design\/icons\//)
   ],
 };
 
