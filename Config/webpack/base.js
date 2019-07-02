@@ -43,18 +43,24 @@ const config = {
   output: {
     path: spliceRootPath(outputPath),
     publicPath,
-    filename: isProd ? '[name]@[hash].js' : '[name].js',
+    filename: isProd ? '[name]@[chunkhash].js' : '[name].js',
   },
   module: {
     rules: [
       {
         test: /\.jsx?$/,
-        exclude: /(node_modules)/,
+        exclude: /node_modules/,
         use: [
           {
             loader: 'babel-loader',
             options: {
-              cacheDirectory: true
+              cacheDirectory: true,
+              // 禁止将es6module转换成commonJs 模块，交给webapck进行 tree shaking
+              // 标记未被引用的代码，通过 terser-webpack-plugin 在optimize的时候去除死代码
+              // 这里未看到效果
+              presets: [
+                ['@babel/preset-env', { modules: false }]
+              ]
             }
           },
           spliceDirPath(__dirname, 'lazyLoader.js')
