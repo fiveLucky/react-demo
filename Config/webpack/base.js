@@ -106,6 +106,13 @@ const config = {
     }),
     new CleanWebpackPlugin()
   ],
+  resolve: {
+    alias: {
+      '$component': spliceRootPath('src/component'),
+      '$config': spliceRootPath('src/config'),
+      '$util': spliceRootPath('src/util'),
+    }
+  }
 };
 
 
