@@ -6,9 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack --mode=development --config=Config/webpack/dev.js --progress --color",
-    "start-dashboard": "webpack-dashboard -- node ./Config/server",
-    "start-normal": "node ./Config/server",
-    "sn": "yarn run start-normal",
+    "start-dashboard": "NODE_ENV=development webpack-dashboard -- node ./Config/server",
+    "start": "NODE_ENV=development node ./Config/server",
+    "sn": "yarn run start",
     "sd": "yarn run start-dashboard",
     "build": "NODE_ENV=production webpack --config=Config/webpack/prod.js --progress",
     "analyze": "NODE_ENV=production webpack --config=Config/webpack/analyze.js --progress",

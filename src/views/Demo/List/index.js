@@ -42,7 +42,7 @@ export default class List extends Component {
     const { loading, dataSource } = store;
     return (
       <div className={styles.container}>
-        <div className={styles.title}> aaa</div>
+        <div className={styles.title}>所有人员列表</div>
         <Table dataSource={toJS(dataSource)} loading={loading} columns={columns} />
       </div>
     );
