@@ -24,8 +24,6 @@ koaWebpack({
     ctx.response.body = middleware.devMiddleware.fileSystem.createReadStream(filename);
   });
 });
-
-
 app.listen(userConfig.port, () => {
   console.log(`server start at port ${userConfig.port}`);
   if (userConfig.open) {

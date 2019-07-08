@@ -55,6 +55,7 @@
     "mini-css-extract-plugin": "^0.5.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss-loader": "^3.0.0",
+    "script-attributes-inject-plugin": "^2.0.1",
     "speed-measure-webpack-plugin": "^1.2.3",
     "style-loader": "^0.23.1",
     "terser-webpack-plugin": "^1.3.0",

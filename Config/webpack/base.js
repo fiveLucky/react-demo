@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ScriptAttributesInjectPlugin = require('script-attributes-inject-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { spliceRootPath, spliceDirPath } = require('../util');
 const { outputPath, publicPath } = require('../../project.config.js').output;
@@ -99,6 +100,12 @@ const config = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'template/index.html'
+    }),
+    new ScriptAttributesInjectPlugin({
+      include: 'head',
+      attrs: {
+        src: 'asdfasfasdfasfsdfdssdfdsf'
+      }
     }),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({

@@ -6590,6 +6590,10 @@ schema-utils@^1.0.0:
     ajv-errors "^1.0.0"
     ajv-keywords "^3.1.0"
 
+script-attributes-inject-plugin@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/script-attributes-inject-plugin/-/script-attributes-inject-plugin-2.0.1.tgz#16342e2808d84a42708ebc99dd0107122e9853a8"
+
 select-hose@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/select-hose/-/select-hose-2.0.0.tgz#625d8658f865af43ec962bfc376a37359a4994ca"
