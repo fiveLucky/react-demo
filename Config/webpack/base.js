@@ -12,6 +12,7 @@ const isProd = process.env.NODE_ENV === "production";
 
 const cssLoader = function (modules = true) {
   return [
+    // 把样式文件单独打包到一个文件
     isProd ? MiniCssExtractPlugin.loader : 'style-loader',
     modules ?
       {
@@ -98,22 +99,29 @@ const config = {
     ],
   },
   plugins: [
+    // 处理html文件，比如 动态注入script标签，style标签
     new HtmlWebpackPlugin({
       template: 'template/index.html'
     }),
+    // 自己开发的插件，增删改script标签属性
+    // 文档 https://github.com/fiveLucky/script-attributes-inject-plugin
     new ScriptAttributesInjectPlugin({
       include: 'head',
       attrs: {
         src: 'asdfasfasdfasfsdfdssdfdsf'
       }
     }),
+    // 
     new webpack.NoEmitOnErrorsPlugin(),
+    // 注入环境变量
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     }),
+    // 每次打包完成后清空dist文件夹
     new CleanWebpackPlugin()
   ],
   resolve: {
+    // 别名
     alias: {
       '$component': spliceRootPath('src/component'),
       '$config': spliceRootPath('src/config'),
