@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const ScriptAttributesInjectPlugin = require('script-attributes-inject-plugin');
+// const ScriptAttributesInjectPlugin = require('script-attributes-inject-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { spliceRootPath, spliceDirPath } = require('../util');
 const { outputPath, publicPath } = require('../../project.config.js').output;
@@ -105,12 +105,12 @@ const config = {
     }),
     // 自己开发的插件，增删改script标签属性
     // 文档 https://github.com/fiveLucky/script-attributes-inject-plugin
-    new ScriptAttributesInjectPlugin({
-      include: 'head',
-      attrs: {
-        src: 'asdfasfasdfasfsdfdssdfdsf'
-      }
-    }),
+    // new ScriptAttributesInjectPlugin({
+    //   include: 'head',
+    //   attrs: {
+    //     src: 'asdfasfasdfasfsdfdssdfdsf'
+    //   }
+    // }),
     // 
     new webpack.NoEmitOnErrorsPlugin(),
     // 注入环境变量

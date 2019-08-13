@@ -38,11 +38,17 @@ export default class List extends Component {
   componentDidMount() {
     store.fetchDataSource();
   }
+  click = (event) => {
+    event.preventDefault();
+    alert('a');
+    window.history.pushState('/Demo');
+  }
   render() {
     const { loading, dataSource } = store;
     return (
       <div className={styles.container}>
         <div className={styles.title}>所有人员列表</div>
+        <a href="" onClick={this.click}>skskdfhjdsfhjs</a>
         <Table dataSource={toJS(dataSource)} loading={loading} columns={columns} />
       </div>
     );

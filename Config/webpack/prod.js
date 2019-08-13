@@ -9,7 +9,9 @@ const prodConfig = {
   mode: "production",
   // devtool: 'source-map',
   optimization: {
-    // minimize: true,// 默认开启
+    // minimize: true,
+    // 默认开启，这个是webpack实现tree-shaking的一个配置，依赖TerserWebpackPlugin实现
+    // 如果里面配置了其它plugin，这时需要手动添加 TerserWebpackPlugin 以保持tree-shaking
     minimizer: [ // 这样就覆盖了默认的 minimizer，为了压缩css
       new TerserWebpackPlugin({ // 这个其实和默认的minimizer效果一样，但是覆盖了，就得手动设置了
         cache: true,
