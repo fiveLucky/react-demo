@@ -1,55 +1,50 @@
-import { observable, action } from 'mobx';
-
+import { useState, useEffect } from "react";
 
 const data = [
   {
-    name: '阿🐝',
+    name: "阿🐝",
     age: 26,
-    gender: 'male',
+    gender: "male",
     height: 160,
     weight: 200,
   },
   {
-    name: '阿🐔',
+    name: "阿🐔",
     age: 26,
-    gender: 'male',
+    gender: "male",
     height: 160,
     weight: 200,
   },
   {
-    name: '阿🐱',
+    name: "阿🐱",
     age: 26,
-    gender: 'male',
+    gender: "male",
     height: 160,
     weight: 200,
   },
   {
-    name: '阿🐺',
+    name: "阿🐺",
     age: 26,
-    gender: 'male',
+    gender: "male",
     height: 160,
     weight: 200,
   },
 ];
 
-class store {
-  @observable dataSource = [];
-  @observable loading = false;
-
-  @action
-  changeDataSource(value) {
-    Object.assign(this.dataSource, value);
-  }
-
-  @action
-  fetchDataSource = () => {
-    this.loading = true;
-    // 模拟请求
+function store() {
+  const [dataSource, setDataSource] = useState([]);
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true);
     setTimeout(() => {
-      this.loading = false;
-      this.changeDataSource(data);
+      setDataSource(data);
+      setLoading(false);
     }, 1000);
-  }
+  }, []);
 
+  return {
+    dataSource,
+    loading,
+  };
 }
-export default new store();
+export default store;
