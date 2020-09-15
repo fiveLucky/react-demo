@@ -24,11 +24,22 @@ const menuTree = [
   },
   {
     navName: '示例2',
-    path: '/Demo2',
+    path: '/web/Demo2',
     children: [
       {
         navName: '生命周期',
         path: '/web/Demo2/lifeCircle',
+        children: [],
+      },
+    ],
+  },
+  {
+    navName: 'ReactUseDemo',
+    path: '/web/ReactUseDemo',
+    children: [
+      {
+        navName: 'useBattery',
+        path: '/web/ReactUseDemo/useBattery',
         children: [],
       },
     ],
