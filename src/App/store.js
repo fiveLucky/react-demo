@@ -27,13 +27,8 @@ const menuTree = [
     path: '/Demo2',
     children: [
       {
-        navName: '列表',
-        path: '/Demo2/List',
-        children: [],
-      },
-      {
-        navName: '详情',
-        path: '/Demo2/Detail',
+        navName: '生命周期',
+        path: '/web/Demo2/lifeCircle',
         children: [],
       },
     ],
