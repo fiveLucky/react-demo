@@ -85,48 +85,49 @@
   align-items: center;
 
 
-  div {
-    display        : inline-block;
-    margin         : 0;
-    height         : 100%;
-    flex           : 1;
-    display        : flex;
-    justify-content: center;
-    align-items    : center;
-    position       : relative;
-    background     : none;
-    border         : none;
-    outline        : none;
+}
 
-    &::before {
-      position        : absolute;
-      content         : "";
-      height          : 0;
-      width           : 0;
-      border-bottom   : 2px solid blue;
-      bottom          : 0;
-      transition      : all 0.2s;
-      // left         : 100%;
-    }
+.tabPane {
+  display        : inline-block;
+  margin         : 0;
+  height         : 100%;
+  flex           : 1;
+  display        : flex;
+  justify-content: center;
+  align-items    : center;
+  position       : relative;
+  background     : none;
+  border         : none;
+  outline        : none;
 
-    // &:focus::before {
-    //   width: 100%;
-    //   left : 0;
-    // }
+  &::before {
+    position        : absolute;
+    content         : "";
+    height          : 0;
+    width           : 0;
+    border-bottom   : 2px solid blue;
+    bottom          : 0;
+    transition      : all 0.2s;
+    // left         : 100%;
   }
 
-  // button:focus~button::before {
-  //   left: 0;
+  // &:focus::before {
+  //   width: 100%;
+  //   left : 0;
   // }
+}
 
-  .active {
-    &::before {
-      width   : 100%;
-      // left : 0;
-    }
+// button:focus~button::before {
+//   left: 0;
+// }
 
-    &~div::before {
-      // left: 0;
-    }
+.active {
+  &::before {
+    width   : 100%;
+    // left : 0;
+  }
+
+  &~div::before {
+    // left: 0;
   }
 }

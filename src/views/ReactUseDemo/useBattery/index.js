@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useBattery } from 'react-use';
 import styles from './index.less';
+import TabPane from './TabPanes';
 
 export default function Index() {
   const batteryState = useBattery();
@@ -13,6 +14,18 @@ export default function Index() {
     isSupported, // 设备是否支持获取电池状态
     level, // 电量
   } = batteryState;
+
+  // 自定义事件
+  const event = useMemo(() => {
+    const defaultE = document.createEvent('Event');
+    defaultE.defaultActiveId = 1;
+    return defaultE;
+  }, []);
+
+  useMemo(() => {
+    console.log('parent effect');
+    event.initEvent('click-active', false, false);
+  }, []);
   console.log(batteryState);
   return (
     <div className={styles.batteryContainer}>
@@ -28,10 +41,9 @@ export default function Index() {
       </div>
       {charging && <div className={styles.batteryLightning}></div>}
       <div className={styles.tabs}>
-        <div className={activeId === 1 && styles.active} onClick={() => setActiveId(1)}>one</div>
-        <div className={activeId === 2 && styles.active} onClick={() => setActiveId(2)}>two</div>
-        <div className={activeId === 3 && styles.active} onClick={() => setActiveId(3)}>three</div>
-        <div className={activeId === 4 && styles.active} onClick={() => setActiveId(4)}>four</div>
+        {
+          [1, 2, 3, 4].map(n => (<TabPane key={n} data={n} event={event}>this is {n}</TabPane>))
+        }
       </div>
     </div >
   );
